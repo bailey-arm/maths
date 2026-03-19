@@ -118,6 +118,20 @@
 \section{Some Underlying Geometric Notions}
 
 \subsection{Homotopy and Homotopy Type}
+\begin{definition}
+  \textbf{Deformation Retraction: }A deformation retraction of a space $X$ onto a subspace $A\subset X$ is a family of maps $f_t: X\to X, t\in I$ such that $f_0 = \text{id}_X$, $f_1(X) = A$, $f_t|_A = \text{id}_A$.  
+\end{definition}
+
+\begin{definition}
+  \textbf{Mapping Cylinder: }For a map $f: X\to Y$ the mapping cylinder $M_f$ is ther quotient space of the disjoint union $(X\times I)\sqcup Y$ obtained via identifying $X\times I \ni (x,1) \sim f(x) \in Y$:
+  \[M_f:= \left((X\times I)\sqcup Y\right) / \sim\]
+\end{definition}
+
+A deformation retraction is a special case of the notion of a homotopy. 
+
+\begin{definition}
+  \textbf{Homotopy: }A homotopy is a family of maps $f_t: X\to Y, t\in I$ such that the associated map $F(x_t) = f_t(x)$ is continuous. Further one says to functions $f_0, f_1$ are \textit{homotopic} if there is a homotopy $f_t$ connecting them.
+\end{definition}
 
 \subsection{Cell Complexes}
 
