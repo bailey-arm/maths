@@ -1,0 +1,166 @@
+% ============================================================
+%  Math Notes Template
+% ============================================================
+\documentclass[11pt, a4paper]{article}
+
+% --- Mathematics (must load before newtxmath) ---
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% --- Fonts & Encoding (XeLaTeX) ---
+\usepackage{fontspec}
+\usepackage{libertine}                    % Linux Libertine text + Biolinum sans
+\usepackage[libertine]{newtxmath}         % Matching math font (loads after amsthm)
+\usepackage{inconsolata}                  % Monospace font
+\usepackage{microtype}                    % Improved typography
+
+% --- Page Layout ---
+\usepackage[
+  margin=2.5cm,
+  headheight=14pt
+]{geometry}
+
+% --- Colours ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{defblue}{HTML}{1a5276}
+\definecolor{thmgreen}{HTML}{196f3d}
+\definecolor{exred}{HTML}{922b21}
+\definecolor{linkblue}{HTML}{2471a3}
+
+% --- TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{
+  arrows.meta,
+  calc,
+  decorations.markings,
+  patterns,
+  positioning,
+  shapes.geometric,
+  cd                                      % commutative diagrams
+}
+
+% --- Theorem Environments ---
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{thmgreen},
+  bodyfont=\normalfont,
+  spaceabove=10pt,
+  spacebelow=10pt,
+]{thmstyle}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{defblue},
+  bodyfont=\normalfont,
+  spaceabove=10pt,
+  spacebelow=10pt,
+]{defstyle}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{exred},
+  bodyfont=\normalfont,
+  spaceabove=10pt,
+  spacebelow=10pt,
+]{exstyle}
+
+\declaretheorem[style=thmstyle, numberwithin=section, name=Theorem]{theorem}
+\declaretheorem[style=thmstyle, sibling=theorem, name=Lemma]{lemma}
+\declaretheorem[style=thmstyle, sibling=theorem, name=Proposition]{proposition}
+\declaretheorem[style=thmstyle, sibling=theorem, name=Corollary]{corollary}
+\declaretheorem[style=defstyle, sibling=theorem, name=Definition]{definition}
+\declaretheorem[style=exstyle,  sibling=theorem, name=Example]{example}
+\declaretheorem[style=exstyle,  numbered=no,      name=Remark]{remark}
+
+% --- Hyperlinks & Cross-references ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=linkblue,
+  citecolor=linkblue,
+  urlcolor=linkblue
+]{hyperref}
+\usepackage{cleveref}
+
+% --- Headers & Footers ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textsc{\nouppercase{\leftmark}}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Enumeration ---
+\usepackage{enumitem}
+
+% --- Bibliography (optional, uncomment if needed) ---
+% \usepackage[style=alphabetic, backend=biber]{biblatex}
+% \addbibresource{refs.bib}
+
+% ============================================================
+%  Fill these in for each set of notes
+% ============================================================
+\newcommand{\notestitle}{Simplicial and Dendroidal Homotopy Theory}
+\newcommand{\notesauthor}{B. Arm}
+\newcommand{\notesdate}{\today}
+
+\title{\notestitle}
+\author{\notesauthor}
+\date{\notesdate}
+
+% ============================================================
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------
+\section{Introduction}
+% ------------------------------------------------------------
+
+Write an overview of the topic here.
+
+% ------------------------------------------------------------
+\section{Background}
+% ------------------------------------------------------------
+
+\begin{definition}[Widget]
+  A \emph{widget} is \dots
+\end{definition}
+
+\begin{theorem}[Main Result]\label{thm:main}
+  Let $X$ be a topological space. Then \dots
+\end{theorem}
+
+\begin{proof}
+  The proof follows from \dots
+\end{proof}
+
+\begin{example}
+  Consider $X = \mathbb{R}^n$ with the standard topology. Then \dots
+\end{example}
+
+\begin{remark}
+  This generalises the classical result of \dots
+\end{remark}
+
+% Example TikZ diagram
+\begin{center}
+\begin{tikzpicture}[
+  node distance=2cm,
+  every node/.style={circle, draw, minimum size=6mm}
+]
+  \node (a) {$A$};
+  \node (b) [right=of a] {$B$};
+  \node (c) [below right=of a] {$C$};
+  \draw[-{Stealth}] (a) -- node[draw=none, above, font=\small] {$f$} (b);
+  \draw[-{Stealth}] (a) -- node[draw=none, left,  font=\small] {$g$} (c);
+  \draw[-{Stealth}] (b) -- node[draw=none, right, font=\small] {$h$} (c);
+\end{tikzpicture}
+\end{center}
+
+% ------------------------------------------------------------
+% \section{Next Topic}
+% ------------------------------------------------------------
+
+% \printbibliography
+
+\end{document}
