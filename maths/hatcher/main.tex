@@ -19,6 +19,13 @@
   headheight=14pt
 ]{geometry}
 
+% --- Line Spacing ---
+\usepackage{setspace}
+\onehalfspacing
+
+% --- Paragraph Spacing ---
+\usepackage{parskip}
+
 % --- Colours ---
 \usepackage[dvipsnames]{xcolor}
 \definecolor{defblue}{HTML}{1a5276}
@@ -145,12 +152,40 @@ A deformation retraction is a special case of the notion of a homotopy.
 %  Chapter 1: The Fundamental Group
 % ============================================================
 \section{The Fundamental Group}
+The fundamental group of a space seeks to formalize the notion of probing for 'holes' in the space via the identification via homotopy equivalence of loops. 
 
 % ------------------------------------------------------------
 \subsection{Basic Constructions}
 % ------------------------------------------------------------
-
 \subsubsection{Paths and Homotopy}
+
+\begin{definition}
+  \textbf{Path: }A path in a space $X$ is a continious map $f: I\to X$.
+\end{definition}
+
+\begin{definition}
+  \textbf{Path Homotopy: }A homotopy of paths in $X$ is a family $f_t: I\to X, t\in I$  such that:
+  \begin{itemize}
+    \item $f_t(0) = x_0, f_t(1) = x_1$ $\forall t$.
+    \item The associated map $F(s,t) = f_t(s)$ is continuous. 
+  \end{itemize}
+\end{definition}
+
+\begin{proposition}
+  Homotopy equivalence on paths is an equivalence relation 
+\end{proposition}
+\proof 
+\textbf{Reflexivity: }Clearly $f\simeq f$ via the constant homotopy $f_t = f$. 
+
+\textbf{Symmetry: } Let $f\stackrel{\phi_t}{\simeq} g$, then $g\stackrel{\phi_{1-t}}{\simeq} f$ trivially.
+
+\textbf{Transitivity: }Let $f\stackrel{\phi^{f,h}_t}{\simeq} g, g\stackrel{\phi^{g,h}_t}{\simeq} h$ we want to prove $f\simeq h$. We can do this via the homotopy $\phi^{f,h}_t = \mathbb{I}\{t\in [0,\frac12]\}\phi^{f,g}_{2t} + \mathbb{I}\{t\in (\frac12, 1]\}\phi^{g,h}_{2t-1}$.
+
+A loop is a path $f: I\to X$ such that $f(0) = f(1) = x_0\in C$ and $x$ is referred to as the basepoint of the loop $f$. The set of homotopy classes of loops in $X$ with basepoint $x_0$ is denoted $\pi_1(X, x_0)$ and is named the fundamental group of the space $X$. 
+
+For example if $X\subseteq \mathbb{R}^n$ is some convex subspace then trivially $\pi_1(X, x) = 0$ for any point $x\in X$. 
+
+A more interesting point is that of the independence of the fundemental group from the chosen basepoint. In fact if the space is path connected then one can easily prove that $\pi_1(X, x_0) \cong \pi_1(X,x_1)$ for any points $x_0, x_1 \in X$.
 
 \subsubsection{The Fundamental Group of the Circle}
 
